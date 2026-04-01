@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Software Engineer Roadmap — 2025</title>
+<style>
+  :root {
+    --bg: #0f0f11;
+    --surface: #1a1a1f;
+    --surface2: #222228;
+    --border: #2e2e38;
+    --text: #e8e8f0;
+    --muted: #888898;
+    --purple: #a78bfa;
+    --purple-dim: #7c3aed22;
+    --teal: #34d399;
+    --teal-dim: #10b98122;
+    --blue: #60a5fa;
+    --blue-dim: #3b82f622;
+    --amber: #fbbf24;
+    --amber-dim: #f59e0b22;
+    --coral: #fb7185;
+    --coral-dim: #f4366022;
+    --green: #86efac;
+    --green-dim: #22c55e22;
+    --pink: #f9a8d4;
+    --pink-dim: #ec489922;
+    --cyan: #67e8f9;
+    --cyan-dim: #06b6d422;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .page-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--purple), var(--blue), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+  .page-header p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .header-meta span {
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .toc h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    padding: 4px 0;
+  }
+  .toc-item:hover { color: var(--text); }
+  .toc-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .phase {
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .phase-header {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .phase-num-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .phase-title-block { flex: 1; }
+  .phase-title-block h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .phase-title-block p {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .phase-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .phase-body { padding: 1.25rem 1.5rem; background: var(--bg); }
+
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  .course-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 8px;
+  }
+  .course-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .course-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .course-by {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .badge-row {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .badge {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .badge-free { background: #14532d44; color: #86efac; border: 1px solid #86efac44; }
+  .badge-key { background: #1e3a5f44; color: #60a5fa; border: 1px solid #60a5fa44; }
+  .badge-paid { background: #4c1d1044; color: #fbbf24; border: 1px solid #fbbf2444; }
+  .course-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+  .course-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--blue);
+    margin-top: 6px;
+  }
+
+  .topic-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 6px;
+    margin-bottom: 1rem;
+  }
+  .topic-item {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 6px 10px;
+    background: var(--surface);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .topic-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .callout {
+    border-left: 3px solid;
+    padding: 0.8rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1rem;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .callout strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .callout-purple { border-color: var(--purple); background: var(--purple-dim); color: var(--text); }
+  .callout-teal { border-color: var(--teal); background: var(--teal-dim); }
+  .callout-blue { border-color: var(--blue); background: var(--blue-dim); }
+  .callout-amber { border-color: var(--amber); background: var(--amber-dim); }
+  .callout-coral { border-color: var(--coral); background: var(--coral-dim); }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2.5rem 0;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .intro-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .intro-box strong { color: var(--text); }
+
+  .timeline {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  .timeline-item {
+    flex: 1;
+    min-width: 120px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .timeline-item .t-num {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .timeline-item .t-label {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .missing-warning {
+    background: #2d1b0022;
+    border: 1px solid var(--amber);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .missing-warning strong { color: var(--amber); display: block; margin-bottom: 6px; font-size: 14px; }
+
+  @media (max-width: 600px) {
+    .page-header h1 { font-size: 1.5rem; }
+    .topic-list { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Complete Software Engineer Roadmap</h1>
+  <p>From 7th semester CS student → freelance full-stack engineer who can build anything.<br>Web · Mobile · Desktop · Real-time · AI · Secure · Scalable.</p>
+  <div class="header-meta">
+    <span>15 Phases</span>
+    <span>24–36 months at consistent pace</span>
+    <span>Updated 2025</span>
+    <span>90%+ courses are free on YouTube</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>Before you start — read this.</strong><br><br>
+    The AI concern is real, but misunderstood. AI tools help senior developers do more, but clients still need a human who understands their business, can take responsibility, can communicate, and can make architectural decisions. The developers who are getting replaced are the ones who only knew one narrow slice. The ones thriving are <strong>generalists who can ship complete products end-to-end</strong>. That is exactly what this roadmap builds.<br><br>
+    <strong>The golden rule:</strong> after every phase, build something real and deploy it publicly. A portfolio of 5 deployed, live applications will get you freelance clients faster than any certificate. Every course should end with a project.<br><br>
+    <strong>On sequence:</strong> Do NOT skip phases or jump ahead. Each phase is a prerequisite for the next. JavaScript mastery (Phase 1) is the single most important investment you will ever make in this career.
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item"><div class="t-num" style="color:var(--purple)">3–4</div><div class="t-label">months · JS + TS</div></div>
+    <div class="timeline-item"><div class="t-num" style="color:var(--teal)">2–3</div><div class="t-label">months · React + Next.js</div></div>
+    <div class="timeline-item"><div class="t-num" style="color:var(--blue)">3–4</div><div class="t-label">months · Backend + DBs</div></div>
+    <div class="timeline-item"><div class="t-num" style="color:var(--amber)">2–3</div><div class="t-label">months · DevOps + AWS</div></div>
+    <div class="timeline-item"><div class="t-num" style="color:var(--coral)">2–3</div><div class="t-label">months · Mobile + Desktop</div></div>
+    <div class="timeline-item"><div class="t-num" style="color:var(--green)">ongoing</div><div class="t-label">AI + Advanced + Freelance</div></div>
+  </div>
+
+  <div class="missing-warning">
+    <strong>What was missing from the first roadmap (now added below)</strong>
+    TypeScript · Next.js · SQL / PostgreSQL · Redis · Real-time / WebSockets / WebRTC · Desktop apps (Electron/Tauri) · AI integration (OpenAI, LangChain) · Testing (Jest, Cypress, Playwright) · System design &amp; architecture · Performance optimization · Payment integration (Stripe) · Push notifications &amp; device APIs · Live streaming (HLS/WebRTC) · Progressive Web Apps · Data structures &amp; algorithms · Monitoring &amp; error tracking · Freelancing skills
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="toc">
+    <h3>Phases</h3>
+    <div class="toc-grid">
+      <a href="#p1" class="toc-item"><span class="toc-num" style="background:#7c3aed33;color:var(--purple)">1</span>JavaScript — Deep Mastery</a>
+      <a href="#p2" class="toc-item"><span class="toc-num" style="background:#2563eb33;color:#93c5fd">2</span>TypeScript</a>
+      <a href="#p3" class="toc-item"><span class="toc-num" style="background:#059669335;color:var(--teal)">3</span>React + State Management</a>
+      <a href="#p4" class="toc-item"><span class="toc-num" style="background:#0891b233;color:var(--cyan)">4</span>Next.js (Full-Stack React)</a>
+      <a href="#p5" class="toc-item"><span class="toc-num" style="background:#1d4ed833;color:var(--blue)">5</span>Backend — Node, Express</a>
+      <a href="#p6" class="toc-item"><span class="toc-num" style="background:#b45309335;color:var(--amber)">6</span>Databases — SQL, MongoDB, Redis</a>
+      <a href="#p7" class="toc-item"><span class="toc-num" style="background:#6b728033;color:#d1d5db">7</span>Git, Linux &amp; Dev Tools</a>
+      <a href="#p8" class="toc-item"><span class="toc-num" style="background:#be123c33;color:var(--coral)">8</span>Security &amp; Authentication</a>
+      <a href="#p9" class="toc-item"><span class="toc-num" style="background:#7c3aed33;color:var(--pink)">9</span>Real-time, WebRTC, Streaming</a>
+      <a href="#p10" class="toc-item"><span class="toc-num" style="background:#d97706335;color:var(--amber)">10</span>DevOps, Docker, CI/CD, AWS</a>
+      <a href="#p11" class="toc-item"><span class="toc-num" style="background:#0d948033;color:var(--green)">11</span>Mobile — React Native</a>
+      <a href="#p12" class="toc-item"><span class="toc-num" style="background:#6b728033;color:#d1d5db">12</span>Desktop — Electron / Tauri</a>
+      <a href="#p13" class="toc-item"><span class="toc-num" style="background:#7c3aed33;color:var(--purple)">13</span>AI Integration</a>
+      <a href="#p14" class="toc-item"><span class="toc-num" style="background:#059669335;color:var(--teal)">14</span>Testing, DSA &amp; System Design</a>
+      <a href="#p15" class="toc-item"><span class="toc-num" style="background:#b45309335;color:var(--amber)">15</span>Freelancing &amp; Portfolio</a>
+    </div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase" id="p1">
+    <div class="phase-header" style="background:var(--purple-dim)">
+      <div class="phase-num-badge" style="background:#7c3aed33;color:var(--purple)">01</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--purple)">JavaScript — Deep Mastery</h2>
+        <p>The most important phase. Do NOT rush. · 3–4 months</p>
+      </div>
+      <span class="phase-tag" style="background:#7c3aed22;color:var(--purple);border:1px solid #7c3aed44">Start here — non-negotiable</span>
+    </div>
+    <div class="phase-body">
+      <p class="section-label">Why this matters</p>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">You already know JavaScript syntax. This phase is about understanding HOW JavaScript works — execution context, closures, the event loop, prototypes, async programming. This knowledge is what separates junior from senior developers. Every bug you've struggled to understand, every interview question you've failed — this phase answers them all.</p>
+
+      <p class="section-label">Courses (in order)</p>
+      <div class="course-card">
+        <div class="course-top">
+          <div>
+            <div class="course-name">Namaste JavaScript — by Akshay Saini</div>
+            <div class="course-by">YouTube · Akshay Saini (ex-Uber engineer) · Playlist · ~10 hours</div>
+          </div>
+        </div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Most Critical Course</span></div>
+        <div class="course-desc">The single best JavaScript internals course in existence. Covers: execution context, call stack, hoisting, scope chain, closures, the event loop, microtask queue, promises, async/await, prototype chain, OOP in JS. Akshay explains HOW the engine runs your code, not just what the output is. Watch every episode, take handwritten notes.</div>
+        <a class="course-link" href="https://youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-top">
+          <div>
+            <div class="course-name">JavaScript Full Course — 12 hours</div>
+            <div class="course-by">YouTube · Bro Code · 12 hours</div>
+          </div>
+        </div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Excellent practical complement to Namaste JS. Covers DOM manipulation, events, OOP, APIs, async/await through 10+ mini-projects. Watch this alongside Namaste JS for the practical side.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=lfmg-EJ8gm4" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-top">
+          <div>
+            <div class="course-name">JavaScript.info — the Modern JS Tutorial</div>
+            <div class="course-by">Website · javascript.info · Free reference · Read when confused</div>
+          </div>
+        </div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Not a video — it's a text tutorial. The absolute best written JavaScript reference. When something in Namaste JS is confusing, read it here. Covers everything from basics to advanced topics with clear examples.</div>
+        <a class="course-link" href="https://javascript.info" target="_blank">▶ Visit javascript.info →</a>
+      </div>
+
+      <p class="section-label">Topics you must fully understand after this phase</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Execution context &amp; call stack</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Hoisting (var vs let vs const)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Closures &amp; scope chain</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Prototype chain &amp; OOP</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Event loop &amp; microtask queue</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Promises, async/await</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>ES6+ (arrow fns, destructuring, spread)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>this keyword in all contexts</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Higher-order functions (map/filter/reduce)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Modules (import/export, CommonJS)</div>
+      </div>
+
+      <div class="callout callout-purple">
+        <strong>Project after this phase</strong>
+        Build a full weather app using a public API, with async/await, DOM manipulation, error handling, and local storage. Deploy it on GitHub Pages. This is the first item in your portfolio.
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase" id="p2">
+    <div class="phase-header" style="background:#1e3a5f22">
+      <div class="phase-num-badge" style="background:#1e3a5f44;color:#93c5fd">02</div>
+      <div class="phase-title-block">
+        <h2 style="color:#93c5fd">TypeScript</h2>
+        <p>Industry standard. Every serious project uses it. · 3–4 weeks</p>
+      </div>
+      <span class="phase-tag" style="background:#1e3a5f33;color:#93c5fd;border:1px solid #1e3a5f88">Essential for employment</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">TypeScript adds static types to JavaScript. This means you catch errors before running the code, get autocomplete in your editor, and write more maintainable code. Every major company (Google, Microsoft, Airbnb, Uber) uses TypeScript. After this phase, you write TypeScript instead of JavaScript in all new projects.</p>
+
+      <p class="section-label">Courses</p>
+      <div class="course-card">
+        <div class="course-name">TypeScript Full Course for Beginners</div>
+        <div class="course-by">freeCodeCamp YouTube · Hitesh Choudhary · 5 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Recommended</span></div>
+        <div class="course-desc">Covers types, interfaces, generics, classes, enums, union/intersection types, type narrowing, and how to add TypeScript to real-world projects. Very practical, project-based.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=30LWjhZzg50" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">TypeScript Tutorial — Net Ninja</div>
+        <div class="course-by">YouTube · Net Ninja · 21-part playlist</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Shorter, very clear. Good for review after the freeCodeCamp course if anything is unclear.</div>
+        <a class="course-link" href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <div class="callout callout-blue">
+        <strong>After this phase</strong>
+        Convert your weather app from Phase 1 to TypeScript. Now everything you build from here forward should be in TypeScript.
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase" id="p3">
+    <div class="phase-header" style="background:var(--teal-dim)">
+      <div class="phase-num-badge" style="background:#10b98133;color:var(--teal)">03</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--teal)">React + State Management</h2>
+        <p>The #1 frontend skill in the industry · 2–3 months</p>
+      </div>
+      <span class="phase-tag" style="background:#10b98122;color:var(--teal);border:1px solid #10b98144">Frontend core</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">React is used by Facebook, Instagram, Airbnb, Netflix, and thousands of companies. It's the most in-demand frontend skill with 82% developer adoption. State management (how data flows through your app) is the most commonly misunderstood concept — this phase fixes that completely.</p>
+
+      <p class="section-label">Courses (in order)</p>
+      <div class="course-card">
+        <div class="course-name">Namaste React — by Akshay Saini</div>
+        <div class="course-by">YouTube (Season 1 free) / NamasteDev · Akshay Saini · 25+ episodes</div>
+        <div class="badge-row"><span class="badge badge-free">Partial Free</span><span class="badge badge-key">Most Critical</span></div>
+        <div class="course-desc">Builds a full food-delivery app (Swiggy clone). Covers JSX, components deeply, hooks (all of them), React Router v6, Redux Toolkit, custom hooks, performance optimization (lazy loading, memo, useCallback), and how to think in React. The most in-depth free React course available. Season 1 is on YouTube.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=bHjS4xqVoak&list=PLlasXeu85E9nb8Ma9a3GYRP1e3qLvOq7L" target="_blank">▶ Watch Season 1 on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">React + Redux Toolkit full series</div>
+        <div class="course-by">YouTube · Codevolution · Playlist series</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">The clearest explanation of Redux and Redux Toolkit on YouTube. After Namaste React, watch this to cement state management. Also has excellent separate playlists for React Query (TanStack) and React Router.</div>
+        <a class="course-link" href="https://www.youtube.com/@Codevolution/playlists" target="_blank">▶ Codevolution Playlists →</a>
+      </div>
+
+      <p class="section-label">Topics to master in this phase</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>JSX &amp; component composition</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Props &amp; lifting state</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>useState, useEffect, useRef</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>useContext (Context API)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>useReducer + Redux Toolkit</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>React Router v6</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Custom hooks</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Performance: memo, useMemo, useCallback</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Code splitting &amp; lazy loading</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>React Query / TanStack Query</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Tailwind CSS (already partial knowledge)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Forms with React Hook Form</div>
+      </div>
+
+      <div class="callout callout-teal">
+        <strong>Project after this phase</strong>
+        Build a full e-commerce frontend: product listing, cart, wishlist, filters, search, authentication UI. Use TypeScript, React, Redux Toolkit, and React Query for API calls. Deploy on Vercel (free).
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase" id="p4">
+    <div class="phase-header" style="background:var(--cyan-dim)">
+      <div class="phase-num-badge" style="background:#06b6d433;color:var(--cyan)">04</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--cyan)">Next.js — Full-Stack React Framework</h2>
+        <p>The framework every serious React project now uses · 1–2 months</p>
+      </div>
+      <span class="phase-tag" style="background:#06b6d422;color:var(--cyan);border:1px solid #06b6d444">Industry standard</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Next.js is a React framework that adds server-side rendering (SSR), static site generation (SSG), API routes, automatic code splitting, and image optimization. Nearly every production React app now uses Next.js. It lets you build the frontend AND backend in one project. The App Router (introduced in Next.js 13) is the modern way — only learn this, ignore tutorials using the old Pages Router.</p>
+
+      <p class="section-label">Courses</p>
+      <div class="course-card">
+        <div class="course-name">Next.js 14 Full Course — App Router, MongoDB, Auth.js</div>
+        <div class="course-by">YouTube · Lama Dev · 5 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Recommended start</span></div>
+        <div class="course-desc">Builds a full-stack app with App Router, Server Components, Server Actions, MongoDB, and Auth.js authentication. Covers folder structure, routing, layouts, SSR vs CSR, data fetching, caching, SEO, admin dashboard. Uses the latest modern patterns.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=VE8BkImgle4" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">Official Next.js Learn Course</div>
+        <div class="course-by">nextjs.org/learn · Interactive · Free · Official by Vercel</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Build a financial dashboard app. The most authoritative source for Next.js. Covers styling, routing, data fetching with PostgreSQL on Vercel, authentication, and deployment. Do this AFTER Lama Dev's course to reinforce everything.</div>
+        <a class="course-link" href="https://nextjs.org/learn/dashboard-app" target="_blank">▶ Start Official Course →</a>
+      </div>
+
+      <p class="section-label">Key concepts</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>App Router &amp; file-based routing</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>Server Components vs Client Components</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>Server Actions (forms &amp; mutations)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>SSR, SSG, ISR (rendering modes)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>Data fetching &amp; caching</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>API routes</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>Image optimization</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>Metadata &amp; SEO</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>Middleware &amp; route protection</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--cyan)"></span>Deployment to Vercel</div>
+      </div>
+
+      <div class="callout callout-blue">
+        <strong>Project after this phase</strong>
+        Rebuild Phase 3's e-commerce app in Next.js with SSR, authentication via Auth.js, and a PostgreSQL database on Vercel. Add SEO metadata and deploy. This is now a real production-quality app.
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase" id="p5">
+    <div class="phase-header" style="background:var(--blue-dim)">
+      <div class="phase-num-badge" style="background:#3b82f633;color:var(--blue)">05</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--blue)">Backend — Node.js, Express.js &amp; REST APIs</h2>
+        <p>Build the server side that powers all your apps · 2–3 months</p>
+      </div>
+      <span class="phase-tag" style="background:#3b82f622;color:var(--blue);border:1px solid #3b82f644">Backend core</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Node.js lets you run JavaScript on the server. Express.js is the most popular framework to build APIs. Understanding the backend is what makes you a full-stack developer. You will understand how every web service you use was built — authentication, APIs, middleware, error handling, and more.</p>
+
+      <p class="section-label">Courses (in order)</p>
+      <div class="course-card">
+        <div class="course-name">Node.js &amp; Express Full Course — 8 hours</div>
+        <div class="course-by">freeCodeCamp YouTube · 8 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Most Critical</span></div>
+        <div class="course-desc">The definitive free backend course. Covers Node.js internals, creating an HTTP server from scratch, Express routing, middleware pattern, REST API design, authentication, error handling, and MVC architecture. Every concept builds on the previous one.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=Oe421EPjeBE" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">Namaste Node.js — Akshay Saini (premium, but the best)</div>
+        <div class="course-by">NamasteDev · Akshay Saini · Paid</div>
+        <div class="badge-row"><span class="badge badge-paid">Paid (~₹3000)</span><span class="badge badge-key">Worth it</span></div>
+        <div class="course-desc">The deepest Node.js course available. Covers V8 engine, libuv, event loop in Node, streams, buffers, cluster module, child processes, JWT &amp; OAuth, sessions, security headers, rate limiting, and deploying to production. If you can afford it, buy it. It will save you months of confusion later.</div>
+        <a class="course-link" href="https://namastedev.com/learn/namaste-node" target="_blank">▶ Visit NamasteDev →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">MERN Stack 2025 — Deploy a real notes app</div>
+        <div class="course-by">freeCodeCamp YouTube · Beginner-friendly · ~4 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Connects everything: MongoDB, Express, React, Node.js. Builds and DEPLOYS a full app. Great for seeing how frontend and backend talk to each other in practice.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=O3BUHwfHf84" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">Topics to master</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>HTTP methods &amp; status codes</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>REST API design principles</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>Express routing &amp; middleware</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>MVC architecture pattern</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>Error handling middleware</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>Input validation (Zod or Joi)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>Environment variables (.env)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>Rate limiting</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>API documentation (Swagger)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--blue)"></span>Postman for testing APIs</div>
+      </div>
+
+      <div class="callout callout-blue">
+        <strong>Project after this phase</strong>
+        Build a REST API for a social media app: user registration/login, posts CRUD, likes, follows, file upload for profile pictures. Secure with JWT auth. Deploy the API on Railway or Render (free tier). Connect your Next.js frontend to it.
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase" id="p6">
+    <div class="phase-header" style="background:var(--amber-dim)">
+      <div class="phase-num-badge" style="background:#d9770633;color:var(--amber)">06</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--amber)">Databases — SQL, MongoDB &amp; Redis</h2>
+        <p>Every app needs data storage. Master all three. · 1–2 months</p>
+      </div>
+      <span class="phase-tag" style="background:#d9770622;color:var(--amber);border:1px solid #d9770644">Data layer</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Your first roadmap only included MongoDB. That's not enough. SQL is used in 70% of professional projects. Redis is used for caching and speed. You must know all three and when to use each.</p>
+
+      <p class="section-label">PostgreSQL + SQL (Relational Database)</p>
+      <div class="course-card">
+        <div class="course-name">PostgreSQL Full Course for Beginners</div>
+        <div class="course-by">freeCodeCamp YouTube · ~4 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Critical</span></div>
+        <div class="course-desc">SQL is the most important database skill. Covers SELECT, JOIN, GROUP BY, indexes, transactions, foreign keys, and using PostgreSQL with Node.js via the pg library. Also learn Prisma ORM (search 'Prisma ORM tutorial' on YouTube by Web Dev Simplified).</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=SpfIwlAYaKk" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">MongoDB (already partial knowledge — deepen it)</p>
+      <div class="course-card">
+        <div class="course-name">MongoDB Full Course</div>
+        <div class="course-by">YouTube · Web Dev Simplified · ~2 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Covers MongoDB + Mongoose in depth: schemas, validation, querying, aggregation pipeline, indexes, relationships, and best practices. Focus on Mongoose (the ODM you'll use with Node).</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=DZBGEVgL2eE" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">Redis (Caching, Sessions, Rate Limiting)</p>
+      <div class="course-card">
+        <div class="course-name">Redis Crash Course</div>
+        <div class="course-by">YouTube · Traversy Media / Web Dev Simplified · ~1 hour</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Redis is an in-memory database for: caching API responses (10x speed boost), storing sessions, implementing rate limiting, real-time leaderboards, and pub/sub messaging. Every high-performance app uses Redis. Learn the basics — strings, lists, hashes, TTL (expiry), and how to use it with Node.js.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=jgpVdJB2sKQ" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">When to use what</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>PostgreSQL → most apps, financial data, complex queries</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>MongoDB → flexible schema, content apps, logs</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Redis → caching, sessions, queues, real-time</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Prisma ORM → best way to use SQL in Node/Next.js</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Mongoose ORM → best way to use MongoDB in Node.js</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 7 -->
+  <div class="phase" id="p7">
+    <div class="phase-header" style="background:#6b728011">
+      <div class="phase-num-badge" style="background:#6b728033;color:#d1d5db">07</div>
+      <div class="phase-title-block">
+        <h2 style="color:#d1d5db">Git, GitHub Advanced &amp; Linux Basics</h2>
+        <p>Tools every professional must know · 3–4 weeks</p>
+      </div>
+      <span class="phase-tag" style="background:#6b728022;color:#d1d5db;border:1px solid #6b728066">Essential tools</span>
+    </div>
+    <div class="phase-body">
+      <p class="section-label">Courses</p>
+      <div class="course-card">
+        <div class="course-name">Git &amp; GitHub — Full Course</div>
+        <div class="course-by">freeCodeCamp YouTube · ~1 hour</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Covers branching, merging, rebasing, pull requests, resolving merge conflicts, working with teams, GitHub Actions basics, and GitHub Pages deployment.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">Linux Command Line — Full Course</div>
+        <div class="course-by">freeCodeCamp YouTube · ~4 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Critical for deployment</span></div>
+        <div class="course-desc">Covers file system navigation, permissions, SSH, bash scripting, processes, package managers, cron jobs, and text editors (nano/vim basics). You need this to use any real server. Focus on what you need to deploy apps — not the full sysadmin path.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=sWbUDq4S6Y8" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">Git skills to master</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Branching strategy (main, dev, feature)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Merge vs rebase</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Pull requests &amp; code review workflow</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Git stash, cherry-pick, reset</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>GitHub Actions basics</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Semantic commit messages</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 8 -->
+  <div class="phase" id="p8">
+    <div class="phase-header" style="background:var(--coral-dim)">
+      <div class="phase-num-badge" style="background:#f4366033;color:var(--coral)">08</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--coral)">Security &amp; Authentication — Professional Level</h2>
+        <p>What makes apps that clients can actually trust · 1–2 months</p>
+      </div>
+      <span class="phase-tag" style="background:#f4366022;color:var(--coral);border:1px solid #f4366044">Non-negotiable for freelance</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Security is not optional for freelancers. When a client's app gets hacked, you are responsible. This phase covers the most critical security topics that protect every app you build.</p>
+
+      <p class="section-label">Courses</p>
+      <div class="course-card">
+        <div class="course-name">JWT Authentication — Full Tutorial</div>
+        <div class="course-by">freeCodeCamp YouTube · ~2 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Critical</span></div>
+        <div class="course-desc">JWT (JSON Web Tokens) is how modern apps handle authentication. Covers token structure, signing, verifying, refresh tokens, access token rotation, and protecting routes.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=7Q17ubqLfaM" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">Web Security — Hussein Nasser YouTube channel</div>
+        <div class="course-by">YouTube · Hussein Nasser · Multiple videos (free)</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Best security channel</span></div>
+        <div class="course-desc">Watch his videos on: HTTPS &amp; TLS/SSL, CORS explained, CSRF attacks, XSS (Cross-Site Scripting), SQL injection, secure cookies vs localStorage, HTTP headers security. One of the best practical security channels on YouTube.</div>
+        <a class="course-link" href="https://www.youtube.com/@hnasr/playlists" target="_blank">▶ Hussein Nasser Playlists →</a>
+      </div>
+
+      <p class="section-label">Security checklist — every app you build must have this</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>HTTPS only (never HTTP in production)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Passwords hashed with bcrypt</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>JWT + refresh token rotation</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Input validation on ALL endpoints</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>CORS configured correctly</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Rate limiting on auth routes</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Environment variables for secrets</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>SQL injection prevention (parameterized queries)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>XSS prevention (sanitize user input)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Helmet.js for HTTP security headers</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>OAuth (Google/GitHub login via Auth.js / Clerk)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>2FA / OTP (optional, for sensitive apps)</div>
+      </div>
+
+      <p class="section-label">Third-party auth services (use these for client projects)</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Clerk — easiest, for React/Next.js</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Auth.js (NextAuth) — open source for Next.js</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Firebase Auth — for mobile + web projects</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--coral)"></span>Supabase Auth — PostgreSQL + auth combined</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 9 -->
+  <div class="phase" id="p9">
+    <div class="phase-header" style="background:var(--pink-dim)">
+      <div class="phase-num-badge" style="background:#ec489933;color:var(--pink)">09</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--pink)">Real-time Features — WebSockets, WebRTC &amp; Live Streaming</h2>
+        <p>Chat apps, video calls, live streaming — this is how · 1–2 months</p>
+      </div>
+      <span class="phase-tag" style="background:#ec489922;color:var(--pink);border:1px solid #ec489944">High-value niche skill</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Many high-paying freelance projects involve real-time features: chat, live notifications, video calls, live streaming. This phase teaches you how to build all of them. These features access device hardware (camera, microphone) in the browser.</p>
+
+      <p class="section-label">WebSockets &amp; Socket.io (Chat, Notifications)</p>
+      <div class="course-card">
+        <div class="course-name">Socket.io Full Course — Real-time Chat App</div>
+        <div class="course-by">YouTube · various creators · search 'socket.io full course 2024'</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Essential</span></div>
+        <div class="course-desc">Socket.io enables real-time bidirectional communication (WebSockets). Use it for: live chat, notifications, online presence indicators, real-time dashboards, collaborative editing, and game state sync. Build a full chat application with rooms, online users list, typing indicators, and message history.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=socket.io+full+course+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+
+      <p class="section-label">WebRTC (Video Calls, Screen Sharing, Peer-to-peer)</p>
+      <div class="course-card">
+        <div class="course-name">WebRTC Crash Course — Video Calls in the Browser</div>
+        <div class="course-by">YouTube · Hussein Nasser / Fireship · ~1-2 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">WebRTC lets two browsers communicate directly for video/audio without a central server. Used by Google Meet, Zoom (web), Discord. Access camera &amp; microphone using the browser's getUserMedia API. Covers: peer connections, STUN/TURN servers, offer/answer handshake, and screen sharing.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=webrtc+tutorial+beginners+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+
+      <p class="section-label">Live Streaming (HLS, Video on Demand)</p>
+      <div class="course-card">
+        <div class="course-name">Live Streaming App with Node.js &amp; RTMP</div>
+        <div class="course-by">YouTube · search 'nodejs live streaming ffmpeg rtmp'</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Learn: HLS (HTTP Live Streaming) — how YouTube/Netflix delivers video. RTMP — how OBS/streamers push live video. FFmpeg — the tool that processes video on the server. Build a basic live streaming platform. Use Cloudinary or AWS S3 for video storage.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=nodejs+live+streaming+hls+ffmpeg" target="_blank">▶ Search on YouTube →</a>
+      </div>
+
+      <p class="section-label">Device APIs (Camera, Microphone, Contacts, Location)</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>navigator.mediaDevices.getUserMedia() → camera &amp; mic</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>Geolocation API → user's location</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>Web Notifications API → browser push</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>Contacts API (experimental) → phone contacts</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>File &amp; FileReader API → file uploads</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>Clipboard API → copy/paste</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>Screen Capture API → screen recording</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--pink)"></span>Vibration, Battery, DeviceOrientation APIs</div>
+      </div>
+
+      <div class="callout callout-purple">
+        <strong>Project after this phase</strong>
+        Build a real-time chat application with video call capability (1-on-1). Use Socket.io for messaging and WebRTC for video. This is a VERY impressive portfolio project that demonstrates both real-time and device hardware access skills.
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 10 -->
+  <div class="phase" id="p10">
+    <div class="phase-header" style="background:var(--amber-dim)">
+      <div class="phase-num-badge" style="background:#d9770633;color:var(--amber)">10</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--amber)">DevOps — Docker, CI/CD, AWS &amp; Professional Deployment</h2>
+        <p>Ship apps that stay alive at scale · 2–3 months</p>
+      </div>
+      <span class="phase-tag" style="background:#d9770622;color:var(--amber);border:1px solid #d9770644">Ship it like a pro</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">This phase is what separates developers who can write code from developers who can deliver working production software. Every freelance client wants their app live, reliable, and able to handle real users.</p>
+
+      <p class="section-label">Docker (Containerization — learn this first)</p>
+      <div class="course-card">
+        <div class="course-name">Docker Full Course — Beginner to Pro</div>
+        <div class="course-by">YouTube · TechWorld with Nana · ~3 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Most Critical</span></div>
+        <div class="course-desc">Docker packages your app + all its dependencies into a container that runs identically everywhere. No more "it works on my machine." Covers: images, containers, Dockerfiles, volumes, Docker Compose (running multiple containers together), and publishing images to Docker Hub.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=3c-iBn73dDE" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">AWS Cloud (Amazon Web Services)</p>
+      <div class="course-card">
+        <div class="course-name">AWS Cloud Practitioner Full Course — 14 hours</div>
+        <div class="course-by">freeCodeCamp YouTube · Andrew Brown · 14 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Critical + Free certification prep</span></div>
+        <div class="course-desc">The best free AWS course. Covers everything you need AND prepares you for the AWS Cloud Practitioner certification (the easiest AWS cert). Focus on: EC2 (virtual servers), S3 (file storage), RDS (managed databases), Lambda (serverless functions), IAM (access control), Route 53 (DNS), CloudWatch (monitoring), Auto Scaling, and cost optimization. Skip Kinesis, SageMaker, and other niche services — learn those if a client needs them.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=NhDYbskXRgc" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">CI/CD Pipelines (GitHub Actions)</p>
+      <div class="course-card">
+        <div class="course-name">GitHub Actions Full Course</div>
+        <div class="course-by">YouTube · TechWorld with Nana / freeCodeCamp · ~2 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">How professionals deploy</span></div>
+        <div class="course-desc">CI/CD = every git push automatically tests, builds, and deploys your app. No more manual deploys. Build a pipeline that: runs tests, builds the Docker image, pushes to Docker Hub, and deploys to AWS automatically on every push to main.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=github+actions+complete+tutorial+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+
+      <p class="section-label">Nginx (Web Server / Reverse Proxy)</p>
+      <div class="course-card">
+        <div class="course-name">Nginx Crash Course</div>
+        <div class="course-by">YouTube · Traversy Media · ~1 hour</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Nginx routes traffic to your Node.js app, handles SSL termination, serves static files, and load balances. Every production server uses Nginx. Learn to: install it on Ubuntu EC2, configure reverse proxy, enable SSL with Let's Encrypt, and serve a Node.js app.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=7VAI73roXaY" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">AWS services to focus on (ignore the rest)</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>EC2 — virtual servers, deploy Node apps</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>S3 — store images, files, videos, backups</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>RDS — managed PostgreSQL / MySQL</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Lambda — serverless functions</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>IAM — control who accesses what</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Route 53 — DNS, connect domain to app</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>CloudFront — CDN for speed globally</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Elastic Beanstalk — easy app deployment</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>CloudWatch — monitoring &amp; logs</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Auto Scaling — handle traffic spikes</div>
+      </div>
+
+      <p class="section-label">Cost optimization — critical for client projects</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Always set billing alerts in AWS</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Use Reserved Instances for predictable workloads</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Use Spot Instances for non-critical tasks</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Choose the right EC2 size (don't over-provision)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Use S3 Intelligent-Tiering for storage</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Delete unused resources immediately</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Use free tier for dev environments</div>
+      </div>
+
+      <p class="section-label">Cheaper alternatives for small freelance projects</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Vercel — Next.js apps (generous free tier)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Railway — backend + database (easy, cheap)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Render — full-stack deployment</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Supabase — Postgres + auth + storage for free</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Cloudflare — CDN + DNS + DDoS protection (free)</div>
+      </div>
+
+      <div class="callout callout-amber">
+        <strong>Project after this phase</strong>
+        Deploy your social media API from Phase 5 on AWS EC2 with Nginx, SSL certificate from Let's Encrypt, PostgreSQL on RDS, file uploads to S3, and a GitHub Actions CI/CD pipeline that deploys automatically on every push. Set up CloudWatch alerts. This is a fully production-grade deployment.
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 11 -->
+  <div class="phase" id="p11">
+    <div class="phase-header" style="background:var(--green-dim)">
+      <div class="phase-num-badge" style="background:#22c55e33;color:var(--green)">11</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--green)">Mobile Apps — React Native with Expo</h2>
+        <p>One codebase → iOS + Android apps · 1–2 months</p>
+      </div>
+      <span class="phase-tag" style="background:#22c55e22;color:var(--green);border:1px solid #22c55e44">Freelance multiplier</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Since you already know React, React Native will feel familiar. React Native lets you build iOS and Android apps using JavaScript/TypeScript and React. Expo is the easiest way to start — it gives you access to device hardware (camera, contacts, notifications, gyroscope, GPS, fingerprint, Bluetooth, speakers) without writing native code.</p>
+
+      <p class="section-label">Courses</p>
+      <div class="course-card">
+        <div class="course-name">React Native with Expo — Simon Grimm (notJust.dev)</div>
+        <div class="course-by">YouTube · Simon Grimm (notJust.dev) · Multiple projects</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Best React Native channel</span></div>
+        <div class="course-desc">The best modern React Native channel on YouTube. Uses Expo (the right approach). Covers navigation with Expo Router, styling, Firebase integration, camera, maps, push notifications, and deploying to App Store and Play Store.</div>
+        <a class="course-link" href="https://www.youtube.com/@galaxies_dev" target="_blank">▶ notJust.dev YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">React Native Crash Course — JavaScript Mastery</div>
+        <div class="course-by">YouTube · JavaScript Mastery · ~5 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Project-based, builds real apps. Great for understanding how React Native differs from React web — flexbox layout, StyleSheet, platform-specific code, and native modules.</div>
+        <a class="course-link" href="https://www.youtube.com/@javascriptmastery/videos" target="_blank">▶ JS Mastery YouTube →</a>
+      </div>
+
+      <p class="section-label">Device features available via Expo</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Camera &amp; video recording</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Photo library access</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Push notifications (FCM)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>GPS &amp; location services</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Contacts access</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Biometric authentication</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Accelerometer &amp; gyroscope</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Bluetooth (via bare workflow)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Local file system</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>In-app purchases</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Audio playback &amp; recording</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--green)"></span>Maps (react-native-maps)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 12 -->
+  <div class="phase" id="p12">
+    <div class="phase-header" style="background:#6b728011">
+      <div class="phase-num-badge" style="background:#6b728033;color:#d1d5db">12</div>
+      <div class="phase-title-block">
+        <h2 style="color:#d1d5db">Desktop Apps — Electron &amp; Tauri</h2>
+        <p>Build Windows, macOS &amp; Linux apps with web tech · 3–4 weeks</p>
+      </div>
+      <span class="phase-tag" style="background:#6b728022;color:#d1d5db;border:1px solid #6b728066">Rare &amp; valuable skill</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">Desktop apps are often ignored by web developers — which means less competition. Electron (used by VS Code, Slack, Discord, WhatsApp Desktop) lets you build desktop apps with HTML/CSS/JS. Tauri is the modern alternative — much smaller, faster, more secure, uses Rust on the backend but your frontend is still JS.</p>
+
+      <p class="section-label">Courses</p>
+      <div class="course-card">
+        <div class="course-name">Electron.js Full Course</div>
+        <div class="course-by">YouTube · search 'Electron.js full course 2024 freeCodeCamp'</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Build desktop applications with Electron. Access the file system, send system notifications, create system tray apps, and package for Windows/Mac/Linux. Your React skills transfer directly — the UI is just a React app.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=electron+js+full+course+beginner+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">Tauri 2.0 — Modern Desktop Apps</div>
+        <div class="course-by">YouTube · Fireship / Official Tauri docs</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Tauri apps are 10x smaller than Electron apps, start faster, and are more secure. The frontend is still React. Learn Tauri for new projects — use Electron only if the client specifically needs it (it has a bigger ecosystem).</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=tauri+2.0+tutorial+react" target="_blank">▶ Search on YouTube →</a>
+      </div>
+
+      <p class="section-label">Desktop features you can access</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Full file system access</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>System notifications</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>System tray icon</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Native menus</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Auto-updates</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Keyboard shortcuts (global)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Screen capture</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Camera &amp; microphone</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Offline capability (local SQLite)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:#d1d5db"></span>Cross-platform packaging (.exe, .dmg, .AppImage)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 13 -->
+  <div class="phase" id="p13">
+    <div class="phase-header" style="background:var(--purple-dim)">
+      <div class="phase-num-badge" style="background:#7c3aed33;color:var(--purple)">13</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--purple)">AI Integration — OpenAI, LangChain &amp; Vector DBs</h2>
+        <p>Add AI features to any app you build · 1–2 months</p>
+      </div>
+      <span class="phase-tag" style="background:#7c3aed22;color:var(--purple);border:1px solid #7c3aed44">The multiplier skill of 2025</span>
+    </div>
+    <div class="phase-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1rem">AI integration is the most in-demand skill of 2025. Clients want AI chatbots, AI image generation, AI content assistants, AI search, and more. This phase teaches you how to add AI features to any app — web, mobile, or desktop. You don't need to build ML models from scratch. You use existing APIs (OpenAI, Anthropic, Google) and connect them to your app.</p>
+
+      <p class="section-label">Courses</p>
+      <div class="course-card">
+        <div class="course-name">OpenAI API — Full Tutorial for Web Developers</div>
+        <div class="course-by">YouTube · search 'OpenAI API tutorial Node.js 2024'</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span><span class="badge badge-key">Start here</span></div>
+        <div class="course-desc">The OpenAI API (ChatGPT behind the scenes) lets you add AI to any app with a few lines of code. Covers: chat completions, streaming responses, function calling (AI that can run your code), image generation with DALL-E, text-to-speech, speech-to-text, and embeddings. Learn to build an AI chatbot, AI image generator, and AI document analyzer.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=openai+api+tutorial+nodejs+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">LangChain.js Full Course — AI Apps with Memory &amp; Tools</div>
+        <div class="course-by">YouTube · various creators · search 'LangChain.js tutorial 2024'</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">LangChain lets you build AI apps with memory, tools, and document retrieval (RAG = Retrieval Augmented Generation). Build: an AI that reads your PDF and answers questions about it, an AI with memory that remembers past conversations, an AI agent that can search the web.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=langchain+javascript+tutorial+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">Vercel AI SDK — AI in Next.js apps</div>
+        <div class="course-by">YouTube / Official Docs · sdk.vercel.ai</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">The easiest way to add AI to a Next.js app. Handles streaming, tool calls, and multi-modal (text + image) AI with a clean React API. Works with OpenAI, Anthropic, Google, and many others.</div>
+        <a class="course-link" href="https://sdk.vercel.ai/docs" target="_blank">▶ Vercel AI SDK Docs →</a>
+      </div>
+
+      <p class="section-label">AI features you can now add to any client project</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>AI chatbot / customer support bot</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>AI content generator (blog, product descriptions)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>AI image generation (DALL-E, Stable Diffusion)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Document Q&amp;A (PDF reader with AI)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Speech-to-text (Whisper API)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Text-to-speech (audio generation)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>AI search &amp; semantic similarity</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>AI code assistant (like GitHub Copilot)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>AI moderation (filter bad content)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>AI translation</div>
+      </div>
+
+      <p class="section-label">Vector databases (for AI search apps)</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Pinecone — cloud vector DB (free tier)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Chroma — open source, run locally</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>pgvector — add vectors to PostgreSQL</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--purple)"></span>Supabase — has built-in pgvector support</div>
+      </div>
+
+      <div class="callout callout-purple">
+        <strong>Project after this phase</strong>
+        Build an AI-powered SaaS app: a user uploads any PDF → the app reads it → the user can chat with it using AI, ask questions, get summaries. Add authentication, subscription billing (Stripe), and deploy. This type of product sells on Upwork for $1000–$5000.
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 14 -->
+  <div class="phase" id="p14">
+    <div class="phase-header" style="background:var(--teal-dim)">
+      <div class="phase-num-badge" style="background:#10b98133;color:var(--teal)">14</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--teal)">Testing, DSA, System Design &amp; Advanced Topics</h2>
+        <p>What separates good developers from great ones · Ongoing</p>
+      </div>
+      <span class="phase-tag" style="background:#10b98122;color:var(--teal);border:1px solid #10b98144">Professional excellence</span>
+    </div>
+    <div class="phase-body">
+
+      <p class="section-label">Testing (Automated Tests)</p>
+      <div class="course-card">
+        <div class="course-name">Vitest + React Testing Library — Unit Testing in React</div>
+        <div class="course-by">YouTube · Web Dev Simplified / Codevolution · ~2 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">Unit tests verify individual functions work correctly. Integration tests verify components work together. Learn: Jest/Vitest for unit testing, React Testing Library for component testing. Write tests alongside every feature.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=react+testing+library+vitest+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+      <div class="course-card">
+        <div class="course-name">Playwright — End-to-End Testing</div>
+        <div class="course-by">YouTube · official Playwright channel / various · ~1-2 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">E2E tests simulate a real user clicking through your app. Playwright (by Microsoft) is the best tool. It launches a real browser and tests your whole app. Essential for client projects where bugs in production cost money.</div>
+        <a class="course-link" href="https://www.youtube.com/results?search_query=playwright+end+to+end+testing+tutorial+2024" target="_blank">▶ Search on YouTube →</a>
+      </div>
+
+      <p class="section-label">Data Structures &amp; Algorithms (DSA)</p>
+      <div class="course-card">
+        <div class="course-name">DSA in JavaScript — Full Course</div>
+        <div class="course-by">freeCodeCamp YouTube · ~8 hours</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">DSA is required for technical interviews at big companies and also makes you a better, more efficient programmer. Covers: Big O notation, arrays, linked lists, stacks, queues, hash tables, trees, graphs, sorting algorithms, and search algorithms. Also practice on LeetCode — 50 easy problems is a good start.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=8hly31xKli0" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">System Design</p>
+      <div class="course-card">
+        <div class="course-name">System Design for Beginners — Full Course</div>
+        <div class="course-by">freeCodeCamp / YouTube · Gaurav Sen · Various</div>
+        <div class="badge-row"><span class="badge badge-free">Free</span></div>
+        <div class="course-desc">System design teaches you HOW to architect large, scalable systems. This is what clients pay the most for — a developer who can plan and build something that won't crash with 100,000 users. Covers: load balancing, caching strategies, database sharding, microservices vs monolith, CDNs, message queues, and rate limiting at scale.</div>
+        <a class="course-link" href="https://www.youtube.com/watch?v=F2FmTdLtb_4" target="_blank">▶ Watch on YouTube →</a>
+      </div>
+
+      <p class="section-label">Additional advanced topics (learn when relevant to a project)</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>GraphQL — API alternative to REST</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Stripe — payment integration</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Resend / SendGrid — email services</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Cloudinary — image/video management</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Sentry — error tracking in production</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Progressive Web Apps (PWA)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Microservices &amp; API gateway basics</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>BullMQ — background job queues</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Internationalization (i18n)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Accessibility (WCAG 2.1)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Core Web Vitals &amp; performance</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--teal)"></span>Web3 basics (if clients ask)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 15 -->
+  <div class="phase" id="p15">
+    <div class="phase-header" style="background:var(--amber-dim)">
+      <div class="phase-num-badge" style="background:#d9770633;color:var(--amber)">15</div>
+      <div class="phase-title-block">
+        <h2 style="color:var(--amber)">Freelancing, Portfolio &amp; Career Strategy</h2>
+        <p>Turn your skills into income · Start from Phase 3 onwards</p>
+      </div>
+      <span class="phase-tag" style="background:#d9770622;color:var(--amber);border:1px solid #d9770644">The money phase</span>
+    </div>
+    <div class="phase-body">
+
+      <p class="section-label">Portfolio — the 5 projects that get you hired</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>1. Weather App (Phase 1 — JavaScript + API)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>2. E-commerce app (React + Redux + auth)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>3. Social media API (Node + PostgreSQL + JWT)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>4. Real-time chat + video (Socket.io + WebRTC)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>5. AI SaaS app (PDF chatbot + Stripe + auth)</div>
+      </div>
+
+      <p class="section-label">Where to find freelance clients</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Upwork — biggest freelance platform globally</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Fiverr — good for productized services</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>LinkedIn — direct client outreach</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Toptal — for senior developers, higher rates</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Local businesses — restaurants, clinics, shops</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Twitter/X — build in public, get clients</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>GitHub — strong profile attracts recruiters</div>
+      </div>
+
+      <p class="section-label">Pricing strategy (rough guide for Pakistan/South Asia market)</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Beginner (Phase 1-4 done): $10–15/hr</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Intermediate (Phase 1-8 done): $25–40/hr</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Advanced (all phases): $50–100/hr</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Fixed projects: quote 2x what you think it takes</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>AI integration projects: command 3–5x premium</div>
+      </div>
+
+      <p class="section-label">Non-technical skills that double your income</p>
+      <div class="topic-list">
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Clear written communication in English</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Requirements gathering (ask the right questions)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Project estimation (don't undercharge)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Simple contracts (protect yourself legally)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Setting boundaries (scope creep kills projects)</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Delivering on deadlines consistently</div>
+        <div class="topic-item"><span class="topic-dot" style="background:var(--amber)"></span>Saying no to bad-fit clients</div>
+      </div>
+
+      <div class="callout callout-amber">
+        <strong>The real secret</strong>
+        You don't need to finish all 15 phases before getting your first client. After Phase 5 (Backend), you can build real full-stack web apps. Create your GitHub, deploy two projects, make a LinkedIn profile, and start applying on Upwork. You will learn 5x faster when you have a real client's money on the line. The roadmap is your long-term map — your first client can come much sooner.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Quick Reference -->
+  <div class="toc">
+    <h3>Quick reference — YouTube channels to bookmark</h3>
+    <div class="toc-grid">
+      <a href="https://youtube.com/@akshaymarch7" class="toc-item" target="_blank"><span class="toc-num" style="background:#7c3aed33;color:var(--purple)">▶</span>Akshay Saini (JS + React)</a>
+      <a href="https://youtube.com/@freecodecamp" class="toc-item" target="_blank"><span class="toc-num" style="background:#10b98133;color:var(--teal)">▶</span>freeCodeCamp.org</a>
+      <a href="https://youtube.com/@WebDevSimplified" class="toc-item" target="_blank"><span class="toc-num" style="background:#3b82f633;color:var(--blue)">▶</span>Web Dev Simplified</a>
+      <a href="https://youtube.com/@TraversyMedia" class="toc-item" target="_blank"><span class="toc-num" style="background:#d9770633;color:var(--amber)">▶</span>Traversy Media</a>
+      <a href="https://youtube.com/@Codevolution" class="toc-item" target="_blank"><span class="toc-num" style="background:#10b98133;color:var(--teal)">▶</span>Codevolution (React/Next)</a>
+      <a href="https://youtube.com/@hnasr" class="toc-item" target="_blank"><span class="toc-num" style="background:#f4366033;color:var(--coral)">▶</span>Hussein Nasser (Backend/Security)</a>
+      <a href="https://youtube.com/@TechWorldwithNana" class="toc-item" target="_blank"><span class="toc-num" style="background:#d9770633;color:var(--amber)">▶</span>TechWorld with Nana (DevOps)</a>
+      <a href="https://youtube.com/@galaxies_dev" class="toc-item" target="_blank"><span class="toc-num" style="background:#22c55e33;color:var(--green)">▶</span>notJust.dev (React Native)</a>
+      <a href="https://youtube.com/@javascriptmastery" class="toc-item" target="_blank"><span class="toc-num" style="background:#7c3aed33;color:var(--purple)">▶</span>JavaScript Mastery (Projects)</a>
+      <a href="https://youtube.com/@Fireship" class="toc-item" target="_blank"><span class="toc-num" style="background:#06b6d433;color:var(--cyan)">▶</span>Fireship (Quick concepts)</a>
+      <a href="https://youtube.com/@NetNinja" class="toc-item" target="_blank"><span class="toc-num" style="background:#3b82f633;color:var(--blue)">▶</span>The Net Ninja (TS/React)</a>
+      <a href="https://youtube.com/@BroCodez" class="toc-item" target="_blank"><span class="toc-num" style="background:#ec489933;color:var(--pink)">▶</span>Bro Code (Beginner-friendly)</a>
+    </div>
+  </div>
+
+</div>
+<div class="footer">
+  Complete Software Engineer Roadmap · Generated 2025 · Save this file and open in any browser
+</div>
+</body>
+</html>
